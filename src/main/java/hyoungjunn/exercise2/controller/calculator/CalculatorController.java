@@ -10,6 +10,7 @@ public class CalculatorController {
 
     @GetMapping("/add")
     public int addTwoNumber(CalculatorAddRequest request) {
-        return request.getNumber1() + request.getNumber2();
+        return request.number1() + request.number2();
     }
+
 }
