@@ -12,7 +12,7 @@ import java.util.List;
 @RestController
 public class UserController {
 
-    List<User> users = new ArrayList<>();
+    private final List<User> users = new ArrayList<>();
 
     @PostMapping("/user")
     public void saveUser(@RequestBody UserSaveRequest request) {
