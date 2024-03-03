@@ -33,13 +33,7 @@ public class UserController {
 
     @GetMapping("/user")
     public List<UserResponse> getUser() {
-        String sql = "SELECT * FROM user";
-        return jdbcTemplate.query(sql, (rs, rowNum) -> {
-            long id = rs.getLong("id");
-            String name = rs.getString("name");
-            int age = rs.getInt("age");
-            return new UserResponse(id, name, age);
-        });
+        return userService.getUser();
     }
 
     @PutMapping("/user")

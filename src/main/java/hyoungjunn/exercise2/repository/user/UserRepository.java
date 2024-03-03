@@ -2,7 +2,10 @@ package hyoungjunn.exercise2.repository.user;
 
 import hyoungjunn.exercise2.dto.request.UserSaveRequest;
 import hyoungjunn.exercise2.dto.request.UserUpdateRequest;
+import hyoungjunn.exercise2.dto.response.UserResponse;
 import org.springframework.jdbc.core.JdbcTemplate;
+
+import java.util.List;
 
 public class UserRepository {
 
@@ -37,5 +40,14 @@ public class UserRepository {
         jdbcTemplate.update(sql, request.getName(), request.getAge());
     }
 
+    public List<UserResponse> getUser() {
+        String sql = "SELECT * FROM user";
+        return jdbcTemplate.query(sql, (rs, rowNum) -> {
+            long id = rs.getLong("id");
+            String name = rs.getString("name");
+            int age = rs.getInt("age");
+            return new UserResponse(id, name, age);
+        });
+    }
 
 }
