@@ -29,11 +29,11 @@ public class UserController {
        userService.saveUser(request);
     }
 
-//    @GetMapping("/user")
-//    public List<UserResponse> getUser() {
-//        return userService.getUser();
-//    }
-//
+    @GetMapping("/user")
+    public List<UserResponse> getUser() {
+        return userService.getUser();
+    }
+
 //    @PutMapping("/user")
 //    public void updateUser(@RequestBody UserUpdateRequest request) {
 //        userService.updateUser(request);
