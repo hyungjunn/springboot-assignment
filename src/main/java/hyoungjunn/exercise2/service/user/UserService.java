@@ -3,7 +3,7 @@ package hyoungjunn.exercise2.service.user;
 import hyoungjunn.exercise2.dto.request.UserSaveRequest;
 import hyoungjunn.exercise2.dto.request.UserUpdateRequest;
 import hyoungjunn.exercise2.dto.response.UserResponse;
-import hyoungjunn.exercise2.repository.user.UserRepository;
+import hyoungjunn.exercise2.repository.user.UserJdbcRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,14 +11,14 @@ import java.util.List;
 @Service
 public class UserService {
 
-    private final UserRepository userRepository;
+    private final UserJdbcRepository userJdbcRepository;
 
-    public UserService(UserRepository userRepository) {
-        this.userRepository = userRepository;
+    public UserService(UserJdbcRepository userJdbcRepository) {
+        this.userJdbcRepository = userJdbcRepository;
     }
 
     public void saveUser(UserSaveRequest request) {
-        userRepository.saveUser(request);
+        userJdbcRepository.saveUser(request);
     }
 
     public List<UserResponse> getUser() {
@@ -26,17 +26,17 @@ public class UserService {
     }
 
     public void updateUser(UserUpdateRequest request) {
-        if (userRepository.isUserNotExist(request)) {
+        if (userJdbcRepository.isUserNotExist(request)) {
             throw new IllegalArgumentException();
         }
-        userRepository.updateUser(request);
+        userJdbcRepository.updateUser(request);
     }
 
     public void deleteUser(String name) {
-        if (userRepository.isUserNotExist(name)) {
+        if (userJdbcRepository.isUserNotExist(name)) {
             throw new IllegalArgumentException();
         }
-        userRepository.deleteUser(name);
+        userJdbcRepository.deleteUser(name);
     }
 
 }
