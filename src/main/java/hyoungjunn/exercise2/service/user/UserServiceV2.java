@@ -24,8 +24,7 @@ public class UserServiceV2 {
     }
 
     public List<UserResponse> getUser() {
-        return userRepository.findAll()
-                .stream()
+        return userRepository.findAll().stream()
                 .map(UserResponse::new)
                 .collect(Collectors.toList());
     }
@@ -33,7 +32,11 @@ public class UserServiceV2 {
     public void updateUser(UserUpdateRequest request) {
         User user = userRepository.findById(request.getId())
                 .orElseThrow(IllegalArgumentException::new);
+
+        user.updateName(request.getName());
         userRepository.save(user);
     }
+
+    
 
 }
