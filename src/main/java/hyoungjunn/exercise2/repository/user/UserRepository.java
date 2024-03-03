@@ -40,7 +40,7 @@ public class UserRepository {
         jdbcTemplate.update(sql, request.getName(), request.getAge());
     }
 
-    public List<UserResponse> getUser() {
+    public List<UserResponse> getUserResponse() {
         String sql = "SELECT * FROM user";
         return jdbcTemplate.query(sql, (rs, rowNum) -> {
             long id = rs.getLong("id");
