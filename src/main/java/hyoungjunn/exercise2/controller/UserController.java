@@ -1,11 +1,15 @@
 package hyoungjunn.exercise2.controller;
 
 import hyoungjunn.exercise2.dto.request.UserSaveRequest;
+import hyoungjunn.exercise2.dto.request.UserUpdateRequest;
 import hyoungjunn.exercise2.dto.response.UserResponse;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -34,6 +38,18 @@ public class UserController {
             int age = rs.getInt("age");
             return new UserResponse(id, name, age);
         });
+    }
+
+    @PutMapping("/user")
+    public void updateUser(@RequestBody UserUpdateRequest request) {
+        String sql = "UPDATE user SET name = ? where id = ?";
+        jdbcTemplate.update(sql, request.getName(), request.getId());
+    }
+
+    @DeleteMapping("/user")
+    public void deleteUser(@RequestParam String name) { // 파라미터가 한 개일 때는 @RequestParam 을 꼭 써주자 
+        String sql = "DELETE FROM user WHERE name = ?";
+        jdbcTemplate.update(sql, name);
     }
 
 }
