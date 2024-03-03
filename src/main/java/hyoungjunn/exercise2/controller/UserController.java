@@ -3,7 +3,6 @@ package hyoungjunn.exercise2.controller;
 import hyoungjunn.exercise2.dto.request.UserSaveRequest;
 import hyoungjunn.exercise2.dto.request.UserUpdateRequest;
 import hyoungjunn.exercise2.dto.response.UserResponse;
-import hyoungjunn.exercise2.service.user.UserService;
 import hyoungjunn.exercise2.service.user.UserServiceV2;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -39,9 +38,9 @@ public class UserController {
         userService.updateUser(request);
     }
 
-//    @DeleteMapping("/user")
-//    public void deleteUser(@RequestParam String name) { // 파라미터가 한 개일 때는 @RequestParam 을 꼭 써주자
-//        userService.deleteUser(name);
-//    }
+    @DeleteMapping("/user")
+    public void deleteUser(@RequestParam String name) { // 파라미터가 한 개일 때는 @RequestParam 을 꼭 써주자
+        userService.deleteUser(name);
+    }
 
 }

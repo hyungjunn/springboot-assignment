@@ -37,6 +37,13 @@ public class UserServiceV2 {
         userRepository.save(user);
     }
 
-    
+    public void deleteUser(String name) {
+        User user = userRepository.findByName(name);
+        if (user == null) {
+            throw new IllegalArgumentException();
+        }
+
+        userRepository.delete(user);
+    }
 
 }
