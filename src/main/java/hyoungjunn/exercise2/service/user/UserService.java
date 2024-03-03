@@ -26,7 +26,7 @@ public class UserService {
     }
 
     public void updateUser(UserUpdateRequest request) {
-        if (userJdbcRepository.isUserNotExist(request)) {
+        if (userJdbcRepository.isUserNotExist(request.getId())) {
             throw new IllegalArgumentException();
         }
         userJdbcRepository.updateUser(request.getName(), request.getId());

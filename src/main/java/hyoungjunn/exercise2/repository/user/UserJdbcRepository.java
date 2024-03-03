@@ -22,9 +22,9 @@ public class UserJdbcRepository {
         jdbcTemplate.update(sql, name, id);
     }
 
-    public boolean isUserNotExist(UserUpdateRequest request) {
+    public boolean isUserNotExist(long id) {
         String readSql = "select * from user where id = ?";
-        return jdbcTemplate.query(readSql, (rs, rowNum) -> 0, request.getId()).isEmpty();
+        return jdbcTemplate.query(readSql, (rs, rowNum) -> 0, id).isEmpty();
     }
 
     public boolean isUserNotExist(String name) {
