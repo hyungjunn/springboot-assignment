@@ -19,6 +19,7 @@ public class UserService {
 
     public void saveUser(UserSaveRequest request) {
         userJdbcRepository.saveUser(request.getName(), request.getAge());
+
     }
 
     public List<UserResponse> getUser() {
