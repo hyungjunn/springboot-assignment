@@ -1,5 +1,6 @@
 package hyoungjunn.exercise2.service.user;
 
+import hyoungjunn.exercise2.dto.request.UserSaveRequest;
 import hyoungjunn.exercise2.dto.request.UserUpdateRequest;
 import hyoungjunn.exercise2.repository.user.UserRepository;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -25,6 +26,10 @@ public class UserService {
             throw new IllegalArgumentException();
         }
         userRepository.deleteUser(name);
+    }
+
+    public void saveUser(UserSaveRequest request) {
+        userRepository.saveUser(request);
     }
 
 }

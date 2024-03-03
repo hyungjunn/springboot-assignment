@@ -28,8 +28,7 @@ public class UserController {
 
     @PostMapping("/user")
     public void saveUser(@RequestBody UserSaveRequest request) {
-        String sql = "INSERT INTO user (name, age) VALUES (?, ?)";
-        jdbcTemplate.update(sql, request.getName(), request.getAge());
+       userService.saveUser(request);
     }
 
     @GetMapping("/user")

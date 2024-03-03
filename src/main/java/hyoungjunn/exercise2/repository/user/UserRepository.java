@@ -1,5 +1,6 @@
 package hyoungjunn.exercise2.repository.user;
 
+import hyoungjunn.exercise2.dto.request.UserSaveRequest;
 import hyoungjunn.exercise2.dto.request.UserUpdateRequest;
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -29,6 +30,11 @@ public class UserRepository {
     public void deleteUser(String name) {
         String sql = "DELETE FROM user WHERE name = ?";
         jdbcTemplate.update(sql, name);
+    }
+
+    public void saveUser(UserSaveRequest request) {
+        String sql = "INSERT INTO user (name, age) VALUES (?, ?)";
+        jdbcTemplate.update(sql, request.getName(), request.getAge());
     }
 
 
