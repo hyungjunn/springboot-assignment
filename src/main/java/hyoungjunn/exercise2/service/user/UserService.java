@@ -18,18 +18,18 @@ public class UserService {
     }
 
     public void saveUser(UserSaveRequest request) {
-        userJdbcRepository.saveUser(request);
+        userJdbcRepository.saveUser(request.getName(), request.getAge());
     }
 
     public List<UserResponse> getUser() {
-        return getUser();
+        return userJdbcRepository.getUserResponse();
     }
 
     public void updateUser(UserUpdateRequest request) {
         if (userJdbcRepository.isUserNotExist(request)) {
             throw new IllegalArgumentException();
         }
-        userJdbcRepository.updateUser(request);
+        userJdbcRepository.updateUser(request.getName(), request.getId());
     }
 
     public void deleteUser(String name) {

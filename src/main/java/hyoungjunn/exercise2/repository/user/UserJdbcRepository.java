@@ -17,9 +17,9 @@ public class UserJdbcRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public void updateUser(UserUpdateRequest request) {
+    public void updateUser(String name, long id) {
         String sql = "UPDATE user SET name = ? where id = ?";
-        jdbcTemplate.update(sql, request.getName(), request.getId());
+        jdbcTemplate.update(sql, name, id);
     }
 
     public boolean isUserNotExist(UserUpdateRequest request) {
@@ -37,9 +37,9 @@ public class UserJdbcRepository {
         jdbcTemplate.update(sql, name);
     }
 
-    public void saveUser(UserSaveRequest request) {
+    public void saveUser(String name, Integer age) {
         String sql = "INSERT INTO user (name, age) VALUES (?, ?)";
-        jdbcTemplate.update(sql, request.getName(), request.getAge());
+        jdbcTemplate.update(sql, name, age);
     }
 
     public List<UserResponse> getUserResponse() {
