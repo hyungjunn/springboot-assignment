@@ -3,6 +3,7 @@ package hyoungjunn.exercise2.service.user;
 import hyoungjunn.exercise2.domain.User;
 import hyoungjunn.exercise2.domain.UserRepository;
 import hyoungjunn.exercise2.dto.request.UserSaveRequest;
+import hyoungjunn.exercise2.dto.request.UserUpdateRequest;
 import hyoungjunn.exercise2.dto.response.UserResponse;
 import org.springframework.stereotype.Service;
 
@@ -25,8 +26,14 @@ public class UserServiceV2 {
     public List<UserResponse> getUser() {
         return userRepository.findAll()
                 .stream()
-                .map(user -> new UserResponse(user.getId(), user.getName(), user.getAge()))
+                .map(UserResponse::new)
                 .collect(Collectors.toList());
+    }
+
+    public void updateUser(UserUpdateRequest request) {
+        User user = userRepository.findById(request.getId())
+                .orElseThrow(IllegalArgumentException::new);
+        userRepository.save(user);
     }
 
 }

@@ -34,11 +34,11 @@ public class UserController {
         return userService.getUser();
     }
 
-//    @PutMapping("/user")
-//    public void updateUser(@RequestBody UserUpdateRequest request) {
-//        userService.updateUser(request);
-//    }
-//
+    @PutMapping("/user")
+    public void updateUser(@RequestBody UserUpdateRequest request) {
+        userService.updateUser(request);
+    }
+
 //    @DeleteMapping("/user")
 //    public void deleteUser(@RequestParam String name) { // 파라미터가 한 개일 때는 @RequestParam 을 꼭 써주자
 //        userService.deleteUser(name);
