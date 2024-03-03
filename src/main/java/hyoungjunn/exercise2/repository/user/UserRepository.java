@@ -21,5 +21,15 @@ public class UserRepository {
         return jdbcTemplate.query(readSql, (rs, rowNum) -> 0, request.getId()).isEmpty();
     }
 
+    public boolean isUserNotExist(String name) {
+        String readSql = "select * from user where name = ?";
+        return jdbcTemplate.query(readSql, (rs, rowNum) -> 0, name).isEmpty();
+    }
+
+    public void deleteUser(String name) {
+        String sql = "DELETE FROM user WHERE name = ?";
+        jdbcTemplate.update(sql, name);
+    }
+
 
 }

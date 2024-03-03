@@ -5,7 +5,6 @@ import hyoungjunn.exercise2.repository.user.UserRepository;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
-@Service
 public class UserService {
 
     private final UserRepository userRepository;
@@ -19,6 +18,13 @@ public class UserService {
             throw new IllegalArgumentException();
         }
         userRepository.updateUser(request);
+    }
+
+    public void deleteUser(String name) {
+        if (userRepository.isUserNotExist(name)) {
+            throw new IllegalArgumentException();
+        }
+        userRepository.deleteUser(name);
     }
 
 }

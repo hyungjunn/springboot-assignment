@@ -50,13 +50,7 @@ public class UserController {
 
     @DeleteMapping("/user")
     public void deleteUser(@RequestParam String name) { // 파라미터가 한 개일 때는 @RequestParam 을 꼭 써주자
-        String readSql = "select * from user where name = ?";
-        boolean isUserNotExist = jdbcTemplate.query(readSql, (rs, rowNum) -> 0, name).isEmpty();
-        if (isUserNotExist) {
-            throw new IllegalArgumentException();
-        }
-        String sql = "DELETE FROM user WHERE name = ?";
-        jdbcTemplate.update(sql, name);
+        userService.deleteUser(name);
     }
 
 }
