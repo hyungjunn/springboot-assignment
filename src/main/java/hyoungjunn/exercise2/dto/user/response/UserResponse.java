@@ -1,4 +1,4 @@
-package hyoungjunn.exercise2.dto.response;
+package hyoungjunn.exercise2.dto.user.response;
 
 import hyoungjunn.exercise2.domain.user.User;
 

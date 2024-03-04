@@ -1,8 +1,8 @@
-package hyoungjunn.exercise2.controller;
+package hyoungjunn.exercise2.controller.user;
 
-import hyoungjunn.exercise2.dto.request.UserSaveRequest;
-import hyoungjunn.exercise2.dto.request.UserUpdateRequest;
-import hyoungjunn.exercise2.dto.response.UserResponse;
+import hyoungjunn.exercise2.dto.user.request.UserSaveRequest;
+import hyoungjunn.exercise2.dto.user.request.UserUpdateRequest;
+import hyoungjunn.exercise2.dto.user.response.UserResponse;
 import hyoungjunn.exercise2.service.user.UserServiceV2;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;

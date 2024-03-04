@@ -1,8 +1,6 @@
 package hyoungjunn.exercise2.repository.user;
 
-import hyoungjunn.exercise2.dto.request.UserSaveRequest;
-import hyoungjunn.exercise2.dto.request.UserUpdateRequest;
-import hyoungjunn.exercise2.dto.response.UserResponse;
+import hyoungjunn.exercise2.dto.user.response.UserResponse;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 

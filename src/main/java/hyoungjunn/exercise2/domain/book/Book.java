@@ -15,4 +15,13 @@ public class Book {
     @Column(nullable = false)
     private String name;
 
+    protected Book() {
+    }
+
+    public Book(String name) {
+        if (name == null || name.isBlank()) {
+            throw new IllegalArgumentException(String.format("name(%s)을 정확히 입력해주세요.", name));
+        }
+        this.name = name;
+    }
 }

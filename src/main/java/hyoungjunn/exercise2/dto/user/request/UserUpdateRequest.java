@@ -1,4 +1,4 @@
-package hyoungjunn.exercise2.dto.request;
+package hyoungjunn.exercise2.dto.user.request;
 
 public class UserUpdateRequest {
 
