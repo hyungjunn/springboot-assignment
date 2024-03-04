@@ -38,7 +38,9 @@ public class UserServiceV2 {
                 .orElseThrow(IllegalArgumentException::new);
 
         user.updateName(request.getName());
-        userRepository.save(user);
+        //영속성 컨텍스트가 실행되면서 변경을 감지(Dirty check)되어 알아서 저장하기
+        //때문에 아래의 save메서드가 필요가 없어지게 된다
+        //userRepository.save(user);
     }
 
     @Transactional
