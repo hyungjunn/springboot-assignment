@@ -1,6 +1,7 @@
 package hyoungjunn.exercise2.controller.book;
 
 import hyoungjunn.exercise2.dto.book.BookCreateRequest;
+import hyoungjunn.exercise2.dto.book.BookLoanRequest;
 import hyoungjunn.exercise2.service.book.BookService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,4 +21,8 @@ public class BookController {
         bookService.saveBook(request.getName());
     }
 
+    @PostMapping("/book/loan")
+    public void loanBook(@RequestBody BookLoanRequest request) {
+        bookService.loanBook(request);
+    }
 }
