@@ -1,6 +1,6 @@
 package hyoungjunn.exercise2.dto.response;
 
-import hyoungjunn.exercise2.domain.User;
+import hyoungjunn.exercise2.domain.user.User;
 
 public class UserResponse {
 

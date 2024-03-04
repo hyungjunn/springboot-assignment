@@ -1,5 +1,6 @@
-package hyoungjunn.exercise2.domain;
+package hyoungjunn.exercise2.domain.user;
 
+import hyoungjunn.exercise2.domain.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

@@ -1,7 +1,7 @@
 package hyoungjunn.exercise2.service.user;
 
-import hyoungjunn.exercise2.domain.User;
-import hyoungjunn.exercise2.domain.UserRepository;
+import hyoungjunn.exercise2.domain.user.User;
+import hyoungjunn.exercise2.domain.user.UserRepository;
 import hyoungjunn.exercise2.dto.request.UserSaveRequest;
 import hyoungjunn.exercise2.dto.request.UserUpdateRequest;
 import hyoungjunn.exercise2.dto.response.UserResponse;

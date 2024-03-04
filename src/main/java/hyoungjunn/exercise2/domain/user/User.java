@@ -1,4 +1,4 @@
-package hyoungjunn.exercise2.domain;
+package hyoungjunn.exercise2.domain.user;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
